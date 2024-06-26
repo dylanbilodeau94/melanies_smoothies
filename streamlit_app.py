@@ -41,9 +41,14 @@ if ingredients:
     # st.write(ingredients)
     # st.text(ingredients)
     
-    ingredient_str = " ".join(ingredients)
+    # ingredient_str = " ".join(ingredients)
+
+    ingredient_str = ""
     
     for ingredient in ingredients:
+
+        ingredient_str += ingredient + " "
+        
         search_on=pandas_df.loc[pandas_df['FRUIT_NAME'] == ingredient, 'SEARCH_ON'].iloc[0]
         st.write('The search value for ', ingredient,' is ', search_on, '.')
         
