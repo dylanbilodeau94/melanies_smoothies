@@ -35,8 +35,9 @@ if ingredients:
     # st.text(ingredients)
     
     ingredient_str = " ".join(ingredients)
-
+    
     for ingredient in ingredients:
+        st.subheader(f"{ingredient} Nutrition Information")
         r = requests.get(f"https://fruityvice.com/api/fruit/{ingredient}")
         fv_df = st.dataframe(data=r.json(), use_container_width=True)
     
