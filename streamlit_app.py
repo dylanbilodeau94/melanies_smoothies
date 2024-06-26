@@ -44,7 +44,7 @@ if ingredients:
     ingredient_str = " ".join(ingredients)
     
     for ingredient in ingredients:
-        search_on=pandas_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
+        search_on=pandas_df.loc[pandas_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
         
         st.subheader(f"{ingredient} Nutrition Information")
