@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 import streamlit as st
 # from snowflake.snowpark.context import get_active_session
@@ -17,7 +18,11 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 df = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"), col("SEARCH_ON"))
-st.dataframe(data=df, use_container_width=True)
+# st.dataframe(data=df, use_container_width=True)
+# st.stop()
+
+pandas_df = df.to_pandas()
+st.dataframe(pandas_df)
 st.stop()
 
 # st.dataframe(data=df, use_container_width=True)
