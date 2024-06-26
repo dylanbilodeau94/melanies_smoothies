@@ -26,8 +26,8 @@ ingredients = st.multiselect(
     max_selections=5,
 )
 
-r = requests.get("https://fruityvice.com/api/fruit/watermelon")
-fv_df = st.dataframe(data=r.json(), use_container_width=True)
+# r = requests.get("https://fruityvice.com/api/fruit/watermelon")
+# fv_df = st.dataframe(data=r.json(), use_container_width=True)
 
 if ingredients: 
     
@@ -36,6 +36,10 @@ if ingredients:
     
     ingredient_str = " ".join(ingredients)
 
+    for ingredient in ingredients:
+        r = requests.get(f"https://fruityvice.com/api/fruit/{ingredient}")
+        fv_df = st.dataframe(data=r.json(), use_container_width=True)
+    
     # st.write(ingredient_str)
 
     insert = """insert into smoothies.public.orders(ingredients, name_on_order)
