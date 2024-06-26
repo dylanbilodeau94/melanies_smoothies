@@ -22,8 +22,8 @@ df = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"), c
 # st.stop()
 
 pandas_df = df.to_pandas()
-st.dataframe(pandas_df)
-st.stop()
+# st.dataframe(pandas_df)
+# st.stop()
 
 # st.dataframe(data=df, use_container_width=True)
 
