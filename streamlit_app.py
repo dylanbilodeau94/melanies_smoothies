@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 # from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
@@ -24,6 +25,9 @@ ingredients = st.multiselect(
     df,
     max_selections=5,
 )
+
+r = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fv_df = st.dataframe(data=r.json(), use_container_width=True)
 
 if ingredients: 
     
